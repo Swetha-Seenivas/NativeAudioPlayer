@@ -1,0 +1,110 @@
+import React, { useRef, useEffect, useMemo } from 'react';
+import {
+    View,
+    Text,
+    ScrollView,
+    StyleSheet,
+    Dimensions,
+} from 'react-native';
+import { SpeakerLabels, Word } from '../types';
+import TranscriptSegmentComponent from './TranscriptSegment';
+import { formatTranscriptData, getCurrentWordIndex } from '../utils/transcriptUtils';
+
+interface TranscriptViewProps {
+    words: Word[];
+    speakerLabels: SpeakerLabels;
+    currentTime: number;
+    onWordPress: (time: number) => void;
+    autoScroll?: boolean;
+}
+
+const TranscriptView: React.FC<TranscriptViewProps> = ({
+    words,
+    speakerLabels,
+    currentTime,
+    onWordPress,
+    autoScroll = true,
+}) => {
+    const scrollViewRef = useRef<ScrollView>(null);
+
+    const segments = useMemo(() => formatTranscriptData(words), [words]);
+    const allWords = useMemo(() => words.filter(word => word.type === 'word'), [words]);
+    const currentWordIndex = getCurrentWordIndex(currentTime, allWords);
+
+    // Auto-scroll to current word
+    useEffect(() => {
+        if (autoScroll && currentWordIndex >= 0 && scrollViewRef.current) {
+            // Find the current word's position and scroll to it
+            const currentWord = allWords[currentWordIndex];
+            if (currentWord) {
+                // Simple scroll calculation - scroll to roughly the current word position
+                const progress = currentWordIndex / allWords.length;
+                const { height } = Dimensions.get('window');
+                const scrollPosition = progress * (segments.length * 100); // Rough estimate
+
+                scrollViewRef.current.scrollTo({
+                    y: Math.max(0, scrollPosition - height / 3),
+                    animated: true,
+                });
+            }
+        }
+    }, [currentWordIndex, autoScroll, allWords, segments.length]);
+
+    if (!segments.length) {
+        return (
+            <View style={styles.container}>
+                <View style={styles.emptyState}>
+                    <Text style={styles.emptyText}>No transcript available</Text>
+                </View>
+            </View>
+        );
+    }
+
+    return (
+        <View style={styles.container}>
+            <ScrollView
+                ref={scrollViewRef}
+                style={styles.scrollView}
+                contentContainerStyle={styles.contentContainer}
+                showsVerticalScrollIndicator={true}
+                bounces={false}
+            >
+                {segments.map((segment, index) => (
+                    <TranscriptSegmentComponent
+                        key={`${segment.speaker_id}-${index}`}
+                        speakerId={segment.speaker_id}
+                        words={segment.words}
+                        speakerLabels={speakerLabels}
+                        currentTime={currentTime}
+                        onWordPress={onWordPress}
+                    />
+                ))}
+            </ScrollView>
+        </View>
+    );
+};
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+    },
+    scrollView: {
+        flex: 1,
+    },
+    contentContainer: {
+        paddingRight: 2,
+    },
+    emptyState: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 32,
+    },
+    emptyText: {
+        fontSize: 12,
+        color: '#666',
+        textAlign: 'center',
+    },
+});
+
+export default TranscriptView;
