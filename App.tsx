@@ -1,107 +1,113 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import {
   View,
-  Text,
-  TouchableOpacity,
+  // Text,
+  // TouchableOpacity,
   StyleSheet,
   SafeAreaView,
-  Alert,
-  TouchableWithoutFeedback,
-  ActivityIndicator,
+  // Alert,
+  // TouchableWithoutFeedback,
+  // ActivityIndicator,
 } from 'react-native';
-import TrackPlayer, {
-  State,
-  usePlaybackState,
-  useProgress,
-} from 'react-native-track-player';
-import TranscriptView from './src/components/TranscriptView';
-import { getMockAudioUrl, loadMockData } from './src/services/dataService';
-import { MockResponseData } from './src/types';
-import Svg, { Path } from 'react-native-svg';
-import SummariseIcon from './src/icons/SummariseIcon';
-
+// import TrackPlayer, {
+//   // State,
+//   // usePlaybackState,
+//   // useProgress,
+// } from 'react-native-track-player';
+// import TranscriptView from './src/components/TranscriptView';
+// import { getMockAudioUrl, loadMockData } from './src/services/dataService';
+// import { MockResponseData } from './src/types';
+// import Svg, { Path } from 'react-native-svg';
+// import SummariseIcon from './src/icons/SummariseIcon';
+import AudioPlayer from './components/AudioPlayer';
 
 export default function App() {
-  const [isPlayerReady, setIsPlayerReady] = useState(false);
-  const playbackState = usePlaybackState();
-  const progress = useProgress(100);
-  const progressBarRef = React.useRef<View>(null);
-  const [playbackSpeed, setPlaybackSpeed] = useState(1);
-  const [showSummary, setShowSummary] = useState(false);
-  const [activeTab, setActiveTab] = useState<'summary' | 'transcript' | null>('summary');
-  const [transcriptData, setTranscriptData] = useState<MockResponseData | null>(null);
+  // const [isPlayerReady, setIsPlayerReady] = useState(false);
+  // const playbackState = usePlaybackState();
+  // const progress = useProgress(100);
+  // const progressBarRef = React.useRef<View>(null);
+  // const [playbackSpeed, setPlaybackSpeed] = useState(1);
+  // const [showSummary, setShowSummary] = useState(false);
+  // const [activeTab, setActiveTab] = useState<'summary' | 'transcript' | null>(
+  //   'summary',
+  // );
+  // const [transcriptData, setTranscriptData] = useState<MockResponseData | null>(
+  //   null,
+  // );
 
-  useEffect(() => {
-    setupPlayer();
-    loadTranscriptData();
-  }, []);
+  // useEffect(() => {
+  //   setupPlayer();
+  //   // loadTranscriptData();
+  // }, []);
 
-  const loadTranscriptData = () => {
-    try {
-      const data = loadMockData();
-      setTranscriptData(data);
-    } catch (error) {
-      console.error('Error loading transcript data:', error);
-    }
-  };
+  // const loadTranscriptData = () => {
+  //   try {
+  //     const data = loadMockData();
+  //     setTranscriptData(data);
+  //   } catch (error) {
+  //     console.error('Error loading transcript data:', error);
+  //   }
+  // };
 
-  const setupPlayer = async () => {
-    try {
-      await TrackPlayer.setupPlayer();
-      await TrackPlayer.add({
-        id: 'testTrack',
-        url: getMockAudioUrl(),
-      });
-      setIsPlayerReady(true);
-    } catch (error) {
-      console.error('Error setting up player:', error);
-      Alert.alert('Error', 'Failed to setup audio player');
-    }
-  };
+  // const setupPlayer = async () => {
+  //   try {
+  //     await TrackPlayer.setupPlayer();
+  //     await TrackPlayer.add({
+  //       id: 'testTrack',
+  //       url: getMockAudioUrl(),
+  //     });
+  //     setIsPlayerReady(true);
+  //   } catch (error) {
+  //     console.error('Error setting up player:', error);
+  //     Alert.alert('Error', 'Failed to setup audio player');
+  //   }
+  // };
 
-  const togglePlayback = async () => {
-    try {
-      if (playbackState.state === State.Playing) {
-        await TrackPlayer.pause();
-      } else {
-        await TrackPlayer.play();
-      }
-    } catch (error) {
-      console.error('Error toggling playback:', error);
-    }
-  };
+  // const togglePlayback = async () => {
+  //   try {
+  //     if (playbackState.state === State.Playing) {
+  //       await TrackPlayer.pause();
+  //     } else {
+  //       await TrackPlayer.play();
+  //     }
+  //   } catch (error) {
+  //     console.error('Error toggling playback:', error);
+  //   }
+  // };
 
-  const seekToTime = async (timeInSeconds: number) => {
-    try {
-      await TrackPlayer.seekTo(timeInSeconds);
-    } catch (error) {
-      console.error('Error seeking to time:', error);
-    }
-  };
+  // const seekToTime = async (timeInSeconds: number) => {
+  //   try {
+  //     await TrackPlayer.seekTo(timeInSeconds);
+  //   } catch (error) {
+  //     console.error('Error seeking to time:', error);
+  //   }
+  // };
 
-  const isPlaying = playbackState.state === State.Playing;
-  const isLoading = playbackState.state === State.Loading || playbackState.state === State.Buffering;
+  // const isPlaying = playbackState.state === State.Playing;
+  // const isLoading =
+  //   playbackState.state === State.Loading ||
+  //   playbackState.state === State.Buffering;
 
-  const formatTime = (seconds: number) => {
-    const mins = Math.floor(seconds / 60);
-    const secs = Math.floor(seconds % 60);
-    return `${mins}:${secs.toString().padStart(2, '0')}`;
-  };
+  // const formatTime = (seconds: number) => {
+  //   const mins = Math.floor(seconds / 60);
+  //   const secs = Math.floor(seconds % 60);
+  //   return `${mins}:${secs.toString().padStart(2, '0')}`;
+  // };
 
-  if (!isPlayerReady) {
-    return (
-      <SafeAreaView style={styles.container}>
-        <View style={styles.centerContent}>
-          <Text style={styles.loadingText}>Setting up audio player...</Text>
-        </View>
-      </SafeAreaView>
-    );
-  }
+  // if (!isPlayerReady) {
+  //   return (
+  //     <SafeAreaView style={styles.container}>
+  //       <View style={styles.centerContent}>
+  //         <Text style={styles.loadingText}>Setting up audio player...</Text>
+  //       </View>
+  //     </SafeAreaView>
+  //   );
+  // }
 
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.rowContainer}>
-        <View style={styles.playerContainer}>
+        {/* <View style={styles.playerContainer}>
           <View style={styles.controls}>
             <TouchableOpacity
               style={[styles.playButton, isLoading && styles.disabledButton]}
@@ -164,42 +170,54 @@ export default function App() {
               <Text style={styles.speedButtonText}>{`${playbackSpeed}x`}</Text>
             </TouchableOpacity>
           </View>
-        </View>
+        </View> */}
+        <AudioPlayer
+          audioUrl={
+            'https://www.learningcontainer.com/wp-content/uploads/2020/02/Kalimba-online-audio-converter.com_-1.wav'
+          }
+        />
         {/* {showSummary ? 'Hide' : 'Show'} */}
-        <SummariseIcon showSummary={showSummary} setShowSummary={setShowSummary} />
+        {/* <SummariseIcon
+          showSummary={showSummary}
+          setShowSummary={setShowSummary}
+        /> */}
       </View>
-      {showSummary && (
+      {/* {showSummary && (
         <View style={styles.summaryContainer}>
           <View style={styles.tabContainer}>
             <TouchableOpacity
               style={[
                 styles.tabButton,
-                activeTab === 'summary' && styles.activeTabButton
+                activeTab === 'summary' && styles.activeTabButton,
               ]}
               onPress={() => {
                 setActiveTab('summary');
               }}
             >
-              <Text style={[
-                styles.tabButtonText,
-                activeTab === 'summary' && styles.activeTabText
-              ]}>
+              <Text
+                style={[
+                  styles.tabButtonText,
+                  activeTab === 'summary' && styles.activeTabText,
+                ]}
+              >
                 Summary
               </Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={[
                 styles.tabButton,
-                activeTab === 'transcript' && styles.activeTabButton
+                activeTab === 'transcript' && styles.activeTabButton,
               ]}
               onPress={() => {
                 setActiveTab('transcript');
               }}
             >
-              <Text style={[
-                styles.tabButtonText,
-                activeTab === 'transcript' && styles.activeTabText
-              ]}>
+              <Text
+                style={[
+                  styles.tabButtonText,
+                  activeTab === 'transcript' && styles.activeTabText,
+                ]}
+              >
                 Transcript
               </Text>
             </TouchableOpacity>
@@ -214,7 +232,12 @@ export default function App() {
           )}
 
           {activeTab === 'transcript' && transcriptData && (
-            <View style={{ ...styles.contentContainer, ...styles.transcriptionContainer }}>
+            <View
+              style={{
+                ...styles.contentContainer,
+                ...styles.transcriptionContainer,
+              }}
+            >
               <View style={styles.transcriptContainer}>
                 <TranscriptView
                   words={transcriptData.data.transcript.data.words}
@@ -227,8 +250,7 @@ export default function App() {
             </View>
           )}
         </View>
-
-      )}
+      )} */}
     </SafeAreaView>
   );
 }
@@ -273,7 +295,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    width: '85%'
+    width: '85%',
   },
   timeText: {
     fontSize: 12,
