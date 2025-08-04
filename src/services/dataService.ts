@@ -8,7 +8,7 @@ export const loadMockData = (): MockResponseData => {
 };
 
 export const getMockAudioUrl = () => {
-  // In a real app, this would be the actual URL to your audio file
-  // For now, we'll use a bundled asset path
-  return require('../../mockdata/audio.wav');
+  // For testing purposes, using a remote audio file
+  // In a real app, you could use bundled assets or remote URLs
+  return 'https://www.learningcontainer.com/wp-content/uploads/2020/02/Kalimba-online-audio-converter.com_-1.wav';
 };
