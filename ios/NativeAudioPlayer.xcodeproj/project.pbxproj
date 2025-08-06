@@ -9,15 +9,16 @@
 /* Begin PBXBuildFile section */
 		13B07FBC1A68108700A75B9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.swift */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
-		1570D9CCE4A2B3A6DCCCBEC9 /* Pods_NativeAudioPlayer_NativeAudioPlayerReact.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F14FFBC1EAD02BC0DF168B79 /* Pods_NativeAudioPlayer_NativeAudioPlayerReact.framework */; };
 		20D164A02D4D80800039A91E /* NativeAudioPlayerReact.h in Headers */ = {isa = PBXBuildFile; fileRef = 20D1649E2D4D80800039A91E /* NativeAudioPlayerReact.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		20D164A22D4D80990039A91E /* NativeAudioPlayerReact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D164A12D4D80950039A91E /* NativeAudioPlayerReact.swift */; };
-		6AA88B9B5014BBED150CEA83 /* Pods_NativeAudioPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF40A4BDD1AC4D4261F438AA /* Pods_NativeAudioPlayer.framework */; };
+		5C52E8726387CD2C237CB9A0 /* Pods_NativeAudioPlayer_NativeAudioPlayerReact.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFD43643EE81875BEA98000D /* Pods_NativeAudioPlayer_NativeAudioPlayerReact.framework */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		B16C603D25A2E5456D38112F /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
+		BDA74E1039E26E59C2EDB3A2 /* Pods_NativeAudioPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08F25EBCAAB589BBAA235862 /* Pods_NativeAudioPlayer.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		08F25EBCAAB589BBAA235862 /* Pods_NativeAudioPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NativeAudioPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07F961A680F5B00A75B9A /* NativeAudioPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NativeAudioPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FB01A68108700A75B9A /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = NativeAudioPlayer/AppDelegate.swift; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = NativeAudioPlayer/Images.xcassets; sourceTree = "<group>"; };
@@ -31,9 +32,8 @@
 		4D838915DF00B87281042637 /* Pods-NativeAudioPlayer-NativeAudioPlayerReact.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NativeAudioPlayer-NativeAudioPlayerReact.debug.xcconfig"; path = "Target Support Files/Pods-NativeAudioPlayer-NativeAudioPlayerReact/Pods-NativeAudioPlayer-NativeAudioPlayerReact.debug.xcconfig"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-NativeAudioPlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NativeAudioPlayer.release.xcconfig"; path = "Target Support Files/Pods-NativeAudioPlayer/Pods-NativeAudioPlayer.release.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = NativeAudioPlayer/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DFD43643EE81875BEA98000D /* Pods_NativeAudioPlayer_NativeAudioPlayerReact.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NativeAudioPlayer_NativeAudioPlayerReact.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		F14FFBC1EAD02BC0DF168B79 /* Pods_NativeAudioPlayer_NativeAudioPlayerReact.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NativeAudioPlayer_NativeAudioPlayerReact.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FF40A4BDD1AC4D4261F438AA /* Pods_NativeAudioPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NativeAudioPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,7 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6AA88B9B5014BBED150CEA83 /* Pods_NativeAudioPlayer.framework in Frameworks */,
+				BDA74E1039E26E59C2EDB3A2 /* Pods_NativeAudioPlayer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -49,7 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1570D9CCE4A2B3A6DCCCBEC9 /* Pods_NativeAudioPlayer_NativeAudioPlayerReact.framework in Frameworks */,
+				5C52E8726387CD2C237CB9A0 /* Pods_NativeAudioPlayer_NativeAudioPlayerReact.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,8 +81,8 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				FF40A4BDD1AC4D4261F438AA /* Pods_NativeAudioPlayer.framework */,
-				F14FFBC1EAD02BC0DF168B79 /* Pods_NativeAudioPlayer_NativeAudioPlayerReact.framework */,
+				08F25EBCAAB589BBAA235862 /* Pods_NativeAudioPlayer.framework */,
+				DFD43643EE81875BEA98000D /* Pods_NativeAudioPlayer_NativeAudioPlayerReact.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

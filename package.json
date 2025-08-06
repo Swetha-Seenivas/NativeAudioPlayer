@@ -1,5 +1,5 @@
 {
-  "name": "NativeAudioPlayer",
+  "name": "native-audio-player",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -15,7 +15,7 @@
     "react": "19.1.0",
     "react-native": "0.80.1",
     "react-native-svg": "^15.12.0",
-    "react-native-track-player": "^4.1.1"
+    "react-native-audio-api": "^0.7.0"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
