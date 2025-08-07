@@ -7,10 +7,16 @@
 
 import SwiftUI
 import WebKit
-import EnterpriseReact
+import NativeAudioPlayerReact
 
 struct ContentView: View {
     @State private var showSheet: Bool = false
+    var callRecApiKey: String {
+        ProcessInfo.processInfo.environment["CALLREC_API_KEY"] ?? ""
+    }
+    var accessToken: String {
+        ProcessInfo.processInfo.environment["ACCESS_TOKEN"] ?? ""
+    }
     var body: some View {
         NavigationView {
             VStack {
@@ -21,10 +27,12 @@ struct ContentView: View {
 //                }
                 
                         NavigationLink("Push React Native Screen") {
-                          ReactNativeView(moduleName: "Enterprise")
+                            ReactNativeView(moduleName: "NativeAudioPlayer",
+                                            initialProperties: ["callRecApiKey":  "\(callRecApiKey)", "getAccessToken": "\(accessToken)" ]
+                            )
                         }
                           NavigationLink("Push Web view") {
-                            WebView(url: URL(string: "https://wsk66k6v-3000.inc1.devtunnels.ms/webview")!)
+                            WebView(url: URL(string: "https://phonesystem-apps-qa-14908427417.us-central1.run.app/webview")!)
                           }
                 
             }
@@ -35,6 +43,6 @@ struct ContentView: View {
     }
 }
 
-#Preview {
-    ContentView()
-}
+//#Preview {
+//    ContentView()
+//}

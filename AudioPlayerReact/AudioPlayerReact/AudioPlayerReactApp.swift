@@ -7,7 +7,7 @@
 
 
 import SwiftUI
-import EnterpriseReact
+import NativeAudioPlayerReact
 
 @main
 struct AudioPlayerNativeApp: App {

@@ -52,6 +52,18 @@
             ReferencedContainer = "container:AudioPlayerReact.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "CALLREC_API_KEY"
+            value = "9588ySZzMU3NBVM1foua54GkhB92N5Gk1gDrngtQ"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "ACCESS_TOKEN"
+            value = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjY4MGZjMTNkZWEwMjhhODJkM2I4NjcxZDJlN2NhZjMyZTM0NmU3ZjkifQ.eyJpc3MiOiJodHRwczovL2Z1bGxjcmVhdGl2ZS5mdWxsYXV0aC5jb20iLCJpYXQiOjE3NTQzNzcxMzMsInByb2pfaWQiOiJhbnl3aGVyZXdvcmtzIiwidHlwZSI6InVzZXIiLCJzdWIiOiI3ZTlmNzI0ZC1lOWJjLTQ1N2UtOGM5Yy04YTYyYjNiNTZkODAiLCJleHAiOjE3NTQ5ODE5MzMsImp0aSI6IjI2Y2VhNzNzY2t5a3pLWHUifQ.BembMGE1Z35CPeWIBehmfFSmV5-oH66LaBypKqSX9cA_-6sFGeXmZPhk2tGVPXni-ry4Jujvv_xaL_RLMy5xHH7HsVDZTeljJvYXZVidDXJ6bCwgrmauED1dymHkXzxlXBj_ap2Vny-e4tGI-SYebiC8eKSSoUtGTaPSE0424IhCTNlNS-hYLRplHg33FyhuPmU5GHIAc97KTVFMy5V77J_u053ArROEGgYCmCEERpW5LVUQItMRI6mlXBzQvB3razR0UtqaowMl6zf-1spKLd7U1g30AEhFYRdNDZZBPTKLlGlwO3KgnJ84cs1R-y-agDMsipo7CLbxCmFoN3JdMw"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"

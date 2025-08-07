@@ -1,0 +1,6 @@
+framework module NativeAudioPlayerReact {
+  umbrella header "NativeAudioPlayerReact.h"
+  export *
+
+  module * { export * }
+}

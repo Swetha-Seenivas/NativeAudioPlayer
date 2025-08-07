@@ -57,7 +57,7 @@ struct WebView: UIViewRepresentable {
                             if (typeof initializeAudioPlayer === 'function') {
                                 initializeAudioPlayer(JSON.stringify({
                                     getAccessToken: async () => "",
-                                    connectionId: "d6ae24f7-0528-4782-82c0-80247dc8a14c"
+                                    connectionId: "d6ae24f7-0528-4782-82c0-80247dc8a14c",
                                 }));
                                 console.log('Audio player initialization called (retry)');
                             } else {

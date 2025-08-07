@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2151939E2E41FB9300148495 /* EnterpriseReact.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 215193982E41FB8A00148495 /* EnterpriseReact.xcframework */; };
-		2151939F2E41FB9300148495 /* EnterpriseReact.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 215193982E41FB8A00148495 /* EnterpriseReact.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		215193A02E41FB9400148495 /* hermes.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 215193992E41FB8A00148495 /* hermes.xcframework */; };
-		215193A12E41FB9400148495 /* hermes.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 215193992E41FB8A00148495 /* hermes.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		215193A22E41FB9600148495 /* ReactBrownfield.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2151939A2E41FB8A00148495 /* ReactBrownfield.xcframework */; };
-		215193A32E41FB9600148495 /* ReactBrownfield.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2151939A2E41FB8A00148495 /* ReactBrownfield.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2151942D2E44DFB300148495 /* hermes.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 215194272E44DFA700148495 /* hermes.xcframework */; };
+		2151942E2E44DFB300148495 /* hermes.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 215194272E44DFA700148495 /* hermes.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2151942F2E44DFB500148495 /* NativeAudioPlayerReact.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 215194282E44DFA700148495 /* NativeAudioPlayerReact.xcframework */; };
+		215194302E44DFB500148495 /* NativeAudioPlayerReact.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 215194282E44DFA700148495 /* NativeAudioPlayerReact.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		215194312E44DFB600148495 /* ReactBrownfield.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 215194292E44DFA700148495 /* ReactBrownfield.xcframework */; };
+		215194322E44DFB600148495 /* ReactBrownfield.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 215194292E44DFA700148495 /* ReactBrownfield.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -22,9 +22,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				2151939F2E41FB9300148495 /* EnterpriseReact.xcframework in Embed Frameworks */,
-				215193A32E41FB9600148495 /* ReactBrownfield.xcframework in Embed Frameworks */,
-				215193A12E41FB9400148495 /* hermes.xcframework in Embed Frameworks */,
+				215194302E44DFB500148495 /* NativeAudioPlayerReact.xcframework in Embed Frameworks */,
+				215194322E44DFB600148495 /* ReactBrownfield.xcframework in Embed Frameworks */,
+				2151942E2E44DFB300148495 /* hermes.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -33,9 +33,9 @@
 
 /* Begin PBXFileReference section */
 		213096E72E3A452D002E8282 /* AudioPlayerReact.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioPlayerReact.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		215193982E41FB8A00148495 /* EnterpriseReact.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = EnterpriseReact.xcframework; sourceTree = "<group>"; };
-		215193992E41FB8A00148495 /* hermes.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = hermes.xcframework; sourceTree = "<group>"; };
-		2151939A2E41FB8A00148495 /* ReactBrownfield.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = ReactBrownfield.xcframework; sourceTree = "<group>"; };
+		215194272E44DFA700148495 /* hermes.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = hermes.xcframework; sourceTree = "<group>"; };
+		215194282E44DFA700148495 /* NativeAudioPlayerReact.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = NativeAudioPlayerReact.xcframework; sourceTree = "<group>"; };
+		215194292E44DFA700148495 /* ReactBrownfield.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = ReactBrownfield.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -51,9 +51,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2151939E2E41FB9300148495 /* EnterpriseReact.xcframework in Frameworks */,
-				215193A22E41FB9600148495 /* ReactBrownfield.xcframework in Frameworks */,
-				215193A02E41FB9400148495 /* hermes.xcframework in Frameworks */,
+				2151942D2E44DFB300148495 /* hermes.xcframework in Frameworks */,
+				215194312E44DFB600148495 /* ReactBrownfield.xcframework in Frameworks */,
+				2151942F2E44DFB500148495 /* NativeAudioPlayerReact.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,9 +65,9 @@
 			children = (
 				213096E92E3A452D002E8282 /* AudioPlayerReact */,
 				213096E82E3A452D002E8282 /* Products */,
-				215193982E41FB8A00148495 /* EnterpriseReact.xcframework */,
-				215193992E41FB8A00148495 /* hermes.xcframework */,
-				2151939A2E41FB8A00148495 /* ReactBrownfield.xcframework */,
+				215194272E44DFA700148495 /* hermes.xcframework */,
+				215194282E44DFA700148495 /* NativeAudioPlayerReact.xcframework */,
+				215194292E44DFA700148495 /* ReactBrownfield.xcframework */,
 			);
 			sourceTree = "<group>";
 		};
