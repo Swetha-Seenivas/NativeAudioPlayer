@@ -1,0 +1,6 @@
+framework module EnterpriseReact {
+  umbrella header "EnterpriseReact.h"
+  export *
+
+  module * { export * }
+}
