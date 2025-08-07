@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
     View,
     Text,
@@ -30,6 +30,8 @@ export default function Audioplayer() {
         setPlaybackRate,
         seek,
         formatTime,
+        onSeekChange,
+        onSeekStart,
     } = useAudio();
 
     const togglePlayback = async () => {
@@ -45,6 +47,13 @@ export default function Audioplayer() {
     };
 
     const isLoadingState = isLoading || isBuffering;
+
+    useEffect(() => {
+        if (currentTime >= duration && isPlaying) {
+            pause();
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [currentTime, duration, isPlaying]);
 
     return (
         <SafeAreaView style={styles.container}>
@@ -78,12 +87,14 @@ export default function Audioplayer() {
                             value={currentTime}
                             minimumValue={0}
                             maximumValue={duration || 1}
-                            onValueChange={(value) => seek(value)}
+                            onSlidingStart={onSeekStart}
+                            onValueChange={onSeekChange}
                             minimumTrackTintColor="#111"
                             maximumTrackTintColor="#ddd"
                             thumbTintColor="#111"
                             trackHeight={3}
                             thumbSize={12}
+                            onSlidingComplete={seek}
                         />
                         <Text style={styles.timeText}>{formatTime(duration)}</Text>
                     </View>

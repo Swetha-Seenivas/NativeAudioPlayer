@@ -75,10 +75,8 @@ export const AudioProvider: React.FC<AudioProviderProps> = ({ children }) => {
         const context = new WebAudioContext();
         const gain = context.createGain();
         gain.connect(context.destination);
-
         setAudioContext(context);
         setGainNode(gain);
-
         const loadAudio = async () => {
             try {
                 setIsLoading(true);
@@ -98,15 +96,12 @@ export const AudioProvider: React.FC<AudioProviderProps> = ({ children }) => {
                     setCallRecordingData(recordingData);
                     audioUrl = recordingData.data;
                 }
-
                 const response = await fetch(audioUrl, {
                     headers: { Accept: 'audio/*' },
                 });
-
                 if (!response.ok) {
                     throw new Error(`Failed to fetch audio: ${response.status}`);
                 }
-
                 setIsBuffering(true);
                 const arrayBuffer = await response.arrayBuffer();
                 const buffer = await context.decodeAudioData(arrayBuffer);
@@ -120,9 +115,7 @@ export const AudioProvider: React.FC<AudioProviderProps> = ({ children }) => {
                 setIsBuffering(false);
             }
         };
-
         loadAudio();
-
         return () => {
             context.close();
         };
@@ -131,7 +124,6 @@ export const AudioProvider: React.FC<AudioProviderProps> = ({ children }) => {
     useEffect(() => {
         let animationId: number;
         let lastUpdate = 0;
-
         const updateProgress = (timestamp: number) => {
             if (isPlaying && audioContext && !isSeeking) {
                 if (timestamp - lastUpdate >= 100) {
@@ -142,11 +134,9 @@ export const AudioProvider: React.FC<AudioProviderProps> = ({ children }) => {
                 animationId = requestAnimationFrame(updateProgress);
             }
         };
-
         if (isPlaying && audioContext && !isSeeking) {
             animationId = requestAnimationFrame(updateProgress);
         }
-
         return () => {
             if (animationId) cancelAnimationFrame(animationId);
         };
@@ -156,17 +146,17 @@ export const AudioProvider: React.FC<AudioProviderProps> = ({ children }) => {
         (startOffset: number = currentTime) => {
             if (audioContext && gainNode && audioBuffer) {
                 const source = audioContext.createBufferSource();
-                source.buffer = audioBuffer;
+                source.buffer = audioBuffer; // Reusing the same AudioBuffer is fine
                 source.playbackRate.value = playbackRate;
                 source.connect(gainNode);
                 source.start(0, startOffset);
-
                 setSourceNode(source);
                 setIsPlaying(true);
                 setStartTime(audioContext.currentTime - startOffset);
             }
         },
-        [audioContext, gainNode, audioBuffer, playbackRate, currentTime],
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        [audioContext, gainNode, audioBuffer, playbackRate, currentTime, duration, isPlaying],
     );
 
     const play = useCallback(() => {
@@ -200,16 +190,13 @@ export const AudioProvider: React.FC<AudioProviderProps> = ({ children }) => {
     const seek = useCallback(
         (value: number) => {
             const wasPlaying = isPlaying;
-
             if (sourceNode) {
                 sourceNode.stop();
                 setSourceNode(null);
             }
-
             setCurrentTime(value);
             setIsSeeking(false);
             setIsPlaying(false);
-
             if (wasPlaying) startPlayback(value);
         },
         [isPlaying, sourceNode, startPlayback],
