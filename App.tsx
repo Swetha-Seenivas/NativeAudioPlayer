@@ -1,15 +1,18 @@
 import Audioplayer from './src/components/AudioPlayer';
 import { AudioPlayerProvider } from './src/context/AudioPlayerContext';
+import { AudioProvider } from './src/context/AudioContext';
 
 export default function App() {
   return (
     <AudioPlayerProvider
       connectionId="d6ae24f7-0528-4782-82c0-80247dc8a14c"
-      getAccessToken={() => Promise.resolve('token')}
+      getAccessToken={() => Promise.resolve('')}
       mode="development"
       callRecApiKey={''}
     >
-      <Audioplayer />
+      <AudioProvider>
+        <Audioplayer />
+      </AudioProvider>
     </AudioPlayerProvider>
   );
 }

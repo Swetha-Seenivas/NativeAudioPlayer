@@ -9,39 +9,31 @@ import {
 import { SpeakerLabels, Word } from '../types';
 import TranscriptSegmentComponent from './TranscriptSegment';
 import { formatTranscriptData, getCurrentWordIndex } from '../utils/transcriptUtils';
+import { useAudio } from '../hooks/useAudio';
 
 interface TranscriptViewProps {
     words: Word[];
     speakerLabels: SpeakerLabels;
-    currentTime: number;
-    onWordPress: (time: number) => void;
-    autoScroll?: boolean;
 }
 
 const TranscriptView: React.FC<TranscriptViewProps> = ({
     words,
     speakerLabels,
-    currentTime,
-    onWordPress,
-    autoScroll = true,
 }) => {
+    const autoScroll = true; // This can be a prop if you want to control it externally
     const scrollViewRef = useRef<ScrollView>(null);
-
+    const { currentTime, seek } = useAudio();
     const segments = useMemo(() => formatTranscriptData(words), [words]);
     const allWords = useMemo(() => words.filter(word => word.type === 'word'), [words]);
     const currentWordIndex = getCurrentWordIndex(currentTime, allWords);
 
-    // Auto-scroll to current word
     useEffect(() => {
         if (autoScroll && currentWordIndex >= 0 && scrollViewRef.current) {
-            // Find the current word's position and scroll to it
             const currentWord = allWords[currentWordIndex];
             if (currentWord) {
-                // Simple scroll calculation - scroll to roughly the current word position
                 const progress = currentWordIndex / allWords.length;
                 const { height } = Dimensions.get('window');
-                const scrollPosition = progress * (segments.length * 100); // Rough estimate
-
+                const scrollPosition = progress * (segments.length * 100);
                 scrollViewRef.current.scrollTo({
                     y: Math.max(0, scrollPosition - height / 3),
                     animated: true,
@@ -76,7 +68,7 @@ const TranscriptView: React.FC<TranscriptViewProps> = ({
                         words={segment.words}
                         speakerLabels={speakerLabels}
                         currentTime={currentTime}
-                        onWordPress={onWordPress}
+                        onWordPress={seek}
                     />
                 ))}
             </ScrollView>

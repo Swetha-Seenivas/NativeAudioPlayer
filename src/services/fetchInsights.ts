@@ -1,14 +1,13 @@
-import { TranscriptSegment, SpeakerLabels } from '../types';
+import { MockResponseData } from '../types';
 
 async function fetchInsights({
     connectionId,
+    getAccessToken,
 }: { 
     connectionId: string; 
-}): Promise<
-    { summary: string; transcript: TranscriptSegment[]; speakerLabels: SpeakerLabels } | undefined
-> {
-    const accessToken = '';
-    
+    getAccessToken: () => Promise<string>;
+}): Promise<MockResponseData | undefined> {
+    const accessToken = await getAccessToken();
     try {
         const result = await fetch(`https://backend.switchport.app/api/v1/call/insights/${connectionId}`, {
             method: 'POST',
